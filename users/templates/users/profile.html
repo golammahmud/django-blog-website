@@ -23,51 +23,58 @@
             <thead>
               <tr>
                 <th>Username</th>
+                <td>{{user.username}}</td>
+           
+              </tr>
+              <tr>
                 <th>First name</th>
+                <td>{{user.first_name}}</td>
+              </tr>
+              <tr>
                 <th>Email</th>
+                <td>{{user.email}}</td>
               </tr>
             </thead>
-            <tbody>
-              
-                <tr>
-                  <td>{{ user.username }}</td>
-                  <td>{{ user.first_name }}</td>
-                  <td>{{ user.email }}</td>
-                </tr>
-              
-            </tbody>
           </table>
         </div>
-        <button> <a href="{%url 'update-account'%}">update account</a> </button>
-        
+
+        <div class="btn-group">
+          <button><a href="{%url 'update-account'%}">update account</a></button>
+          <button><a  href="{%url 'post' %} ">My POST</a></button>
+          <button><a  href="{%url 'create-post'%} ">Create New Post</a></button>
+        </div>
       </div>
 
-        </div>
+     </div>
 
-        <div class="col-md-3">
-          <a class='btn btn-outline-info' href="{%url 'post' %} ">My POST</a>
-          <a class='btn btn-outline-info' href="{%url 'create-post'%} ">Create New Post</a>
-        </div>
+        
     </div>
+
+    <style>
+      .btn-group button {
+        background-color: #050505; /* Green background */
+        border: 1px solid rgb(236, 255, 236); /* Green border */
+        color: white; /* White text */
+        padding: 10px 24px; /* Some padding */
+        cursor: pointer; /* Pointer/hand icon */
+        float: left; /* Float the buttons side by side */
+      }
+      
+      /* Clear floats (clearfix hack) */
+      .btn-group:after {
+        content: "";
+        clear: both;
+        display: table;
+      }
+      
+      .btn-group button:not(:last-child) {
+        border-right: none; /* Prevent double borders */
+      }
+      
+      /* Add a background color on hover */
+      .btn-group button:hover {
+        background-color: #daecdb;
+      }
+    </style>
 {% endblock  %}
 
-
-<!-- <div class="media-body">
-  <h2 class="account-heading">{{ user.username }}</h2>
-  <p class="text-secondary">{{ user.email }}</p>
-</div>
-</div>
-
-<form action="" method='POST' enctype="multipart/form-data"> 
-
-   {% csrf_token%}
-  
-     <legend class='border-bottom mb-4'>Profile Information</legend>
-     {{u_form|crispy}}
-  
-   {{p_form|crispy}}
-   <div class="from-group">
-     <button class='btn btn-outline-info'>Update</button>
-   </div>
-        
-</form>-->

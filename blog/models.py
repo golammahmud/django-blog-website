@@ -35,6 +35,21 @@ class Post(models.Model):
     # post_photos=models.ImageField(blank=True,upload_to='blog/images' ,verbose_name='images',max_length=200)
     p_image=models.ImageField(blank=True,verbose_name='images',max_length=200,upload_to='blog/images',null=True)#,default='blog/post.jpg'
     
+    
+    @staticmethod
+    def get_all_post():
+        return Post.objects.all().order_by('-pk')
+    
+    @staticmethod
+    def get_all_post_by_category(category_id):
+        if category_id:
+            return Post.objects.filter(category=category_id).order_by('-pk')
+        else:
+            return Post.objects.all().order_by('-pk')
+        
+    
+    
+    
     def get_absolute_url(self):
         return reverse('post-detail',kwargs={'pk':self.pk,'slug':self.slug})
     # @property

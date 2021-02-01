@@ -14,12 +14,6 @@ class RegistrationForm(UserCreationForm):
     class Meta:
         ordering=('-pk',)
 
-# Create your models here.
-# class  user(models.Model):
-#     username = models.CharField(max_length=100,min_length=6,unique=True)
-#     first_name = models.CharField(max_length=100)
-#     last_name = models.CharField(max_length=100)
-#     email = models.EmailField(max_length=100,unique=True)
 
 
 class Profile(models.Model):

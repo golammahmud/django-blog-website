@@ -13,7 +13,7 @@ urlpatterns = [
     
     
     path('',PostListView, name='home'),
-    path('<slug:category_slug>/',PostListView, name='category-home-view'),
+    # path('slug:category_slug>/',PostListView, name='category-home-view'),
     
     
     
